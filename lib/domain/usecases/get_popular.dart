@@ -5,13 +5,13 @@ import 'package:movie_with_shams/domain/entities/no_params.dart';
 import 'package:movie_with_shams/domain/repositories/movie_repository.dart';
 import 'package:movie_with_shams/domain/usecases/usecase.dart';
 
-class GetTrending extends UseCase<List<MovieEntity>, NoParams> {
+class GetPopular extends UseCase<List<MovieEntity>, NoParams> {
   final MovieRepository repository;
 
-  GetTrending(this.repository);
+  GetPopular(this.repository);
 
   @override
   Future<Either<AppError, List<MovieEntity>>> call(NoParams noParams) async {
-    return await repository.getTrending();
+    return await repository.getPopular();
   }
 }
