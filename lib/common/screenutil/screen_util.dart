@@ -25,16 +25,15 @@ class ScreenUtil {
     return _instance;
   }
 
-  static void init(
-    BoxConstraints constraints, {
+  static void init({
     Orientation orientation = Orientation.portrait,
     Size designSize = defaultSize,
   }) {
     _instance = ScreenUtil._()
       ..uiSize = designSize
       .._orientation = orientation
-      .._screenWidth = constraints.maxWidth
-      .._screenHeight = constraints.maxHeight;
+      .._screenWidth = defaultSize.width
+      .._screenHeight = defaultSize.height;
 
     var window = WidgetsBinding.instance?.window ?? ui.window;
     _instance._pixelRatio = window.devicePixelRatio;
