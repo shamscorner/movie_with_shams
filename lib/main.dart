@@ -1,17 +1,30 @@
+import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:movie_with_shams/data/core/api_client.dart';
 import 'package:movie_with_shams/data/data_sources/movie_remote_data_source.dart';
 import 'package:movie_with_shams/data/repositories/movie_repository_impl.dart';
+import 'package:movie_with_shams/domain/entities/movie_entity.dart';
 import 'package:movie_with_shams/domain/repositories/movie_repository.dart';
 import 'package:movie_with_shams/domain/usecases/get_trending.dart';
 
-void main() {
+import 'domain/entities/app_error.dart';
+
+void main() async {
   ApiClient apiClient = ApiClient(Client());
   MovieRemoteDataSource dataSource = MovieRemoteDataSourceImpl(apiClient);
   MovieRepository movieRepository = MovieRepositoryImpl(dataSource);
   GetTrending getTrending = GetTrending(movieRepository);
-  getTrending();
+
+  final Either<AppError, List<MovieEntity>> eitherResponse =
+      await getTrending();
+  eitherResponse.fold((l) {
+    print('error');
+    print(l);
+  }, (r) {
+    print('list of movies');
+    print(r);
+  });
 
   runApp(MyApp());
 }
@@ -24,54 +37,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ),
+      home: Container(),
     );
   }
 }
