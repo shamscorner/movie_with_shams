@@ -6,12 +6,12 @@ import 'package:movie_with_shams/data/core/api_constants.dart';
 
 class MovieCardWidget extends StatelessWidget {
   final int movieId;
-  final String? posterPath;
+  final String posterPath;
 
   const MovieCardWidget({
     Key? key,
     required this.movieId,
-    this.posterPath,
+    required this.posterPath,
   }) : super(key: key);
 
   @override

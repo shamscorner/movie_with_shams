@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movie_with_shams/common/screenutil/screen_util.dart';
 import 'package:movie_with_shams/domain/entities/movie_entity.dart';
+import 'package:movie_with_shams/presentation/journeys/home/movie_carousel/animated_movie_card_widget.dart';
 import 'package:movie_with_shams/presentation/journeys/home/movie_carousel/movie_card_widget.dart';
 import 'package:movie_with_shams/common/constants/size_constants.dart';
 import 'package:movie_with_shams/common/extensions/size_extensions.dart';
@@ -48,7 +49,9 @@ class _MoviePageViewState extends State<MoviePageView> {
         controller: _pageController,
         itemBuilder: (context, index) {
           final MovieEntity movie = widget.movies[index];
-          return MovieCardWidget(
+          return AnimatedMovieCardWidget(
+            index: index,
+            pageController: _pageController,
             movieId: movie.id,
             posterPath: movie.posterPath,
           );
