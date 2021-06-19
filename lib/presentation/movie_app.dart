@@ -3,6 +3,8 @@ import 'package:movie_with_shams/common/screenutil/screen_util.dart';
 import 'package:movie_with_shams/presentation/themes/app_color.dart';
 import 'package:movie_with_shams/presentation/themes/app_text.dart';
 
+import 'journeys/home/home_screen.dart';
+
 class MovieApp extends StatelessWidget {
   const MovieApp({Key? key}) : super(key: key);
 
@@ -20,7 +22,7 @@ class MovieApp extends StatelessWidget {
         textTheme: AppText.getTextTheme(),
         appBarTheme: const AppBarTheme(elevation: 0),
       ),
-      // home: HomeScreen(),
+      home: HomeScreen(),
     );
   }
 }

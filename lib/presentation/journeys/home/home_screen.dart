@@ -27,6 +27,27 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      body: Stack(
+        fit: StackFit.expand,
+        children: <Widget>[
+          FractionallySizedBox(
+            alignment: Alignment.topCenter,
+            heightFactor: 0.6,
+            // TODO: add movie carousel wisget here
+            child: Placeholder(
+              color: Colors.grey,
+            ),
+          ),
+          FractionallySizedBox(
+            alignment: Alignment.bottomCenter,
+            heightFactor: 0.4,
+            child: Placeholder(
+              color: Colors.white,
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
