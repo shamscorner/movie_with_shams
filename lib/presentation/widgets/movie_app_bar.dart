@@ -22,12 +22,12 @@ class MovieAppBar extends StatelessWidget {
             onPressed: () {},
             icon: SvgPicture.asset(
               'assets/svgs/menu.svg',
-              height: Sizes.dimen_12.h.toDouble(),
+              height: Sizes.dimen_32.h.toDouble(),
             ),
           ),
           Expanded(
             child: const Logo(
-              height: Sizes.dimen_14,
+              height: Sizes.dimen_32,
             ),
           ),
           IconButton(
@@ -35,7 +35,7 @@ class MovieAppBar extends StatelessWidget {
             icon: Icon(
               Icons.search,
               color: Colors.white,
-              size: Sizes.dimen_12.h.toDouble(),
+              size: Sizes.dimen_32.h.toDouble(),
             ),
           ),
         ],
