@@ -4,7 +4,7 @@ import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 
 class ScreenUtil {
-  static const Size defaultSize = Size(414, 896);
+  static const Size defaultSize = Size(414, 780);
   static late ScreenUtil _instance;
 
   /// Size of the phone in UI Design , dp
