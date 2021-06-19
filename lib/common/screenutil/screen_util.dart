@@ -15,7 +15,7 @@ class ScreenUtil {
   static late double _pixelRatio;
   late double _textScaleFactor;
   late double _screenWidth;
-  late double _screenHeight;
+  static late double _screenHeight;
   static late double _statusBarHeight;
   late double _bottomBarHeight;
 
@@ -32,8 +32,9 @@ class ScreenUtil {
     _instance = ScreenUtil._()
       ..uiSize = designSize
       .._orientation = orientation
-      .._screenWidth = defaultSize.width
-      .._screenHeight = defaultSize.height;
+      .._screenWidth = defaultSize.width;
+
+    _screenHeight = defaultSize.height;
 
     var window = WidgetsBinding.instance?.window ?? ui.window;
     _pixelRatio = window.devicePixelRatio;
@@ -55,7 +56,7 @@ class ScreenUtil {
   double get screenWidth => _screenWidth;
 
   ///The vertical extent of this size. dp
-  double get screenHeight => _screenHeight;
+  static double get screenHeight => _screenHeight;
 
   /// The offset from the top, in dp
   static double get statusBarHeight => _statusBarHeight / _pixelRatio;
