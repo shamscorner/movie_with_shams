@@ -4,6 +4,7 @@ import 'package:movie_with_shams/presentation/journeys/home/movie_carousel/movie
 import 'package:movie_with_shams/presentation/journeys/home/movie_carousel/movie_data_widget.dart';
 import 'package:movie_with_shams/presentation/journeys/home/movie_carousel/movie_page_view.dart';
 import 'package:movie_with_shams/presentation/widgets/movie_app_bar.dart';
+import 'package:movie_with_shams/presentation/widgets/seperator.dart';
 
 class MovieCarouselWidget extends StatelessWidget {
   final List<MovieEntity> movies;
@@ -30,6 +31,7 @@ class MovieCarouselWidget extends StatelessWidget {
               initialPage: defaultIndex,
             ),
             MovieDataWidget(),
+            Seperator(),
           ],
         ),
       ],
