@@ -12,11 +12,11 @@ class ScreenUtil {
 
   late Orientation _orientation;
 
-  late double _pixelRatio;
+  static late double _pixelRatio;
   late double _textScaleFactor;
   late double _screenWidth;
   late double _screenHeight;
-  late double _statusBarHeight;
+  static late double _statusBarHeight;
   late double _bottomBarHeight;
 
   ScreenUtil._();
@@ -36,8 +36,8 @@ class ScreenUtil {
       .._screenHeight = defaultSize.height;
 
     var window = WidgetsBinding.instance?.window ?? ui.window;
-    _instance._pixelRatio = window.devicePixelRatio;
-    _instance._statusBarHeight = window.padding.top;
+    _pixelRatio = window.devicePixelRatio;
+    _statusBarHeight = window.padding.top;
     _instance._bottomBarHeight = window.padding.bottom;
     _instance._textScaleFactor = window.textScaleFactor;
   }
@@ -58,7 +58,7 @@ class ScreenUtil {
   double get screenHeight => _screenHeight;
 
   /// The offset from the top, in dp
-  double get statusBarHeight => _statusBarHeight / _pixelRatio;
+  static double get statusBarHeight => _statusBarHeight / _pixelRatio;
 
   /// The offset from the bottom, in dp
   double get bottomBarHeight => _bottomBarHeight / _pixelRatio;
