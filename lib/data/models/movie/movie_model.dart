@@ -6,15 +6,15 @@ class MovieModel extends MovieEntity {
   final bool? video;
   final String title;
   final String? overview;
-  final String? releaseDate;
+  final String releaseDate;
   final int id;
   final bool? adult;
-  final String? backdropPath;
+  final String backdropPath;
   // final List<int>? genreIds;
   final int? voteCount;
   final String? originalLanguage;
   final String? originalTitle;
-  final String? posterPath;
+  final String posterPath;
   final double voteAverage;
   final double? popularity;
   final String? mediaType;
@@ -23,21 +23,24 @@ class MovieModel extends MovieEntity {
     this.video,
     required this.title,
     this.overview,
-    this.releaseDate,
+    required this.releaseDate,
     required this.id,
     this.adult,
-    this.backdropPath,
+    required this.backdropPath,
     // this.genreIds,
     this.voteCount,
     this.originalLanguage,
     this.originalTitle,
-    this.posterPath,
+    required this.posterPath,
     required this.voteAverage,
     this.popularity,
     this.mediaType,
   }) : super(
           id: id,
           title: title,
+          backdropPath: backdropPath,
+          posterPath: posterPath,
+          releaseDate: releaseDate,
           voteAverage: voteAverage,
           overview: overview,
         );
@@ -67,18 +70,18 @@ class MovieModel extends MovieEntity {
       video: map['video'],
       title: map['title'],
       overview: map['overview'],
-      releaseDate: map['releaseDate'],
+      releaseDate: map['release_date'],
       id: map['id'],
       adult: map['adult'],
-      backdropPath: map['backdropPath'],
+      backdropPath: map['backdrop_path'],
       // genreIds: List<int>.from(map['genreIds']),
-      voteCount: map['voteCount'],
-      originalLanguage: map['originalLanguage'],
-      originalTitle: map['originalTitle'],
-      posterPath: map['posterPath'],
-      voteAverage: map['voteAverage']?.toDouble() ?? 0.0,
+      voteCount: map['vote_count'],
+      originalLanguage: map['original_language'],
+      originalTitle: map['original_title'],
+      posterPath: map['poster_path'],
+      voteAverage: map['vote_average']?.toDouble() ?? 0.0,
       popularity: map['popularity']?.toDouble() ?? 0.0,
-      mediaType: map['mediaType'],
+      mediaType: map['media_type'],
     );
   }
 
