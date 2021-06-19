@@ -9,7 +9,7 @@ class MovieModel extends MovieEntity {
   final String releaseDate;
   final int id;
   final bool? adult;
-  final String backdropPath;
+  final String? backdropPath;
   // final List<int>? genreIds;
   final int? voteCount;
   final String? originalLanguage;
@@ -38,7 +38,6 @@ class MovieModel extends MovieEntity {
   }) : super(
           id: id,
           title: title,
-          backdropPath: backdropPath,
           posterPath: posterPath,
           releaseDate: releaseDate,
           voteAverage: voteAverage,
@@ -50,18 +49,18 @@ class MovieModel extends MovieEntity {
       'video': video,
       'title': title,
       'overview': overview,
-      'releaseDate': releaseDate,
+      'release_date': releaseDate,
       'id': id,
       'adult': adult,
-      'backdropPath': backdropPath,
+      'backdrop_path': backdropPath,
       // 'genreIds': genreIds,
-      'voteCount': voteCount,
-      'originalLanguage': originalLanguage,
-      'originalTitle': originalTitle,
-      'posterPath': posterPath,
-      'voteAverage': voteAverage,
+      'vote_count': voteCount,
+      'original_language': originalLanguage,
+      'original_title': originalTitle,
+      'poster_path': posterPath,
+      'vote_average': voteAverage,
       'popularity': popularity,
-      'mediaType': mediaType,
+      'media_type': mediaType,
     };
   }
 
