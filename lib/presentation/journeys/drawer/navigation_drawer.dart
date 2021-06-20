@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movie_with_shams/common/constants/languages.dart';
 import 'package:movie_with_shams/common/constants/size_constants.dart';
 import 'package:movie_with_shams/common/extensions/size_extensions.dart';
 import 'package:movie_with_shams/presentation/journeys/drawer/navigation_expanded_list_tile.dart';
@@ -42,7 +43,7 @@ class NavigationDrawer extends StatelessWidget {
             NavigationExpandedListTile(
               title: 'Language',
               onPressed: () {},
-              children: ['English', 'Spanish'],
+              children: Languages.languages.map((e) => e.value).toList(),
             ),
             NavigationListItem(
               title: 'Feedback',

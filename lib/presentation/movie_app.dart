@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movie_with_shams/common/constants/languages.dart';
 import 'package:movie_with_shams/common/screenutil/screen_util.dart';
 import 'package:movie_with_shams/presentation/themes/app_color.dart';
 import 'package:movie_with_shams/presentation/themes/app_text.dart';
@@ -23,6 +24,8 @@ class MovieApp extends StatelessWidget {
         textTheme: AppText.getTextTheme(),
         appBarTheme: const AppBarTheme(elevation: 0),
       ),
+      supportedLocales: Languages.languages.map((e) => Locale(e.code)).toList(),
+      locale: Locale(Languages.languages[0].code),
       home: HomeScreen(),
     );
   }
