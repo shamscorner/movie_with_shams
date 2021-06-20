@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:movie_with_shams/common/constants/size_constants.dart';
 import 'package:movie_with_shams/common/extensions/size_extensions.dart';
+import 'package:movie_with_shams/presentation/journeys/drawer/navigation_expanded_list_tile.dart';
+import 'package:movie_with_shams/presentation/journeys/drawer/navigation_list_item.dart';
 import 'package:movie_with_shams/presentation/widgets/logo.dart';
 
 class NavigationDrawer extends StatelessWidget {
@@ -32,6 +34,23 @@ class NavigationDrawer extends StatelessWidget {
               child: Logo(
                 height: Sizes.dimen_48.h.toDouble(),
               ),
+            ),
+            NavigationListItem(
+              title: 'Favorite Movies',
+              onPressed: () {},
+            ),
+            NavigationExpandedListTile(
+              title: 'Language',
+              onPressed: () {},
+              children: ['English', 'Spanish'],
+            ),
+            NavigationListItem(
+              title: 'Feedback',
+              onPressed: () {},
+            ),
+            NavigationListItem(
+              title: 'About',
+              onPressed: () {},
             ),
           ],
         ),

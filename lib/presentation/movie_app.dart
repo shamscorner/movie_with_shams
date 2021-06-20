@@ -17,6 +17,7 @@ class MovieApp extends StatelessWidget {
       title: 'Movie with Shams',
       theme: ThemeData(
         primaryColor: AppColor.vulcan,
+        accentColor: AppColor.royalBlue,
         scaffoldBackgroundColor: AppColor.vulcan,
         visualDensity: VisualDensity.adaptivePlatformDensity,
         textTheme: AppText.getTextTheme(),
