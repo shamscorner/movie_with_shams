@@ -3,6 +3,7 @@ import 'package:movie_with_shams/common/constants/languages.dart';
 import 'package:movie_with_shams/common/screenutil/screen_util.dart';
 import 'package:movie_with_shams/presentation/themes/app_color.dart';
 import 'package:movie_with_shams/presentation/themes/app_text.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'journeys/home/home_screen.dart';
 
@@ -26,6 +27,10 @@ class MovieApp extends StatelessWidget {
       ),
       supportedLocales: Languages.languages.map((e) => Locale(e.code)).toList(),
       locale: Locale(Languages.languages[0].code),
+      localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ],
       home: HomeScreen(),
     );
   }
