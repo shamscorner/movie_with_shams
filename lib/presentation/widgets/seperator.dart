@@ -11,6 +11,9 @@ class Seperator extends StatelessWidget {
     return Container(
       height: Sizes.dimen_2.h.toDouble(),
       width: Sizes.dimen_80.w.toDouble(),
+      margin: EdgeInsets.only(
+        top: Sizes.dimen_2.h.toDouble(),
+      ),
       padding: EdgeInsets.only(
         top: Sizes.dimen_2.h.toDouble(),
         bottom: Sizes.dimen_6.h.toDouble(),
