@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:movie_with_shams/common/constants/languages.dart';
 import 'package:movie_with_shams/common/constants/size_constants.dart';
+import 'package:movie_with_shams/common/constants/translation_constants.dart';
 import 'package:movie_with_shams/common/extensions/size_extensions.dart';
+import 'package:movie_with_shams/common/extensions/string_extensions.dart';
 import 'package:movie_with_shams/presentation/journeys/drawer/navigation_expanded_list_tile.dart';
 import 'package:movie_with_shams/presentation/journeys/drawer/navigation_list_item.dart';
 import 'package:movie_with_shams/presentation/widgets/logo.dart';
@@ -37,20 +39,20 @@ class NavigationDrawer extends StatelessWidget {
               ),
             ),
             NavigationListItem(
-              title: 'Favorite Movies',
+              title: TranslationConstants.favoriteMovies.t(context),
               onPressed: () {},
             ),
             NavigationExpandedListTile(
-              title: 'Language',
+              title: TranslationConstants.language.t(context),
               onPressed: () {},
               children: Languages.languages.map((e) => e.value).toList(),
             ),
             NavigationListItem(
-              title: 'Feedback',
+              title: TranslationConstants.feedback.t(context),
               onPressed: () {},
             ),
             NavigationListItem(
-              title: 'About',
+              title: TranslationConstants.about.t(context),
               onPressed: () {},
             ),
           ],
