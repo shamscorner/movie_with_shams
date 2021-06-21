@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_with_shams/common/constants/languages.dart';
 import 'package:movie_with_shams/common/constants/size_constants.dart';
 import 'package:movie_with_shams/common/constants/translation_constants.dart';
 import 'package:movie_with_shams/common/extensions/size_extensions.dart';
 import 'package:movie_with_shams/common/extensions/string_extensions.dart';
-import 'package:movie_with_shams/presentation/journeys/drawer/navigation_expanded_list_tile.dart';
+import 'package:movie_with_shams/presentation/blocs/language/language_bloc.dart';
+import 'package:movie_with_shams/presentation/journeys/drawer/navigation_expanded_list_item.dart';
 import 'package:movie_with_shams/presentation/journeys/drawer/navigation_list_item.dart';
 import 'package:movie_with_shams/presentation/widgets/logo.dart';
 
@@ -42,9 +44,15 @@ class NavigationDrawer extends StatelessWidget {
               title: TranslationConstants.favoriteMovies.t(context),
               onPressed: () {},
             ),
-            NavigationExpandedListTile(
+            NavigationExpandedListItem(
               title: TranslationConstants.language.t(context),
-              onPressed: () {},
+              onPressed: (index) {
+                BlocProvider.of<LanguageBloc>(context).add(
+                  ToggleLanguageEvent(
+                    Languages.languages[index],
+                  ),
+                );
+              },
               children: Languages.languages.map((e) => e.value).toList(),
             ),
             NavigationListItem(
