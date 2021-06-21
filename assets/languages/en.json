@@ -1,4 +1,7 @@
 {
+  "retry": "Retry",
+  "somethingWentWrong": "Something went wrong!",
+  "checkNetwork": "Please check your internet connection and press retry button. If you find any weird behavior, please share your feedback through our feedback tool.",
   "favoriteMovies": "Favorite Movies",
   "language": "Language",
   "feedback": "Feedback",

@@ -1,4 +1,7 @@
 {
+  "retry": "Rever",
+  "somethingWentWrong": "Algo salió mal!",
+  "checkNetwork": "Verifique su conexión a Internet y presione el botón de reintento. Si encuentra algún comportamiento extraño, comparta sus comentarios a través de nuestra herramienta de comentarios.",
   "favoriteMovies": "Peliculas favoritas",
   "language": "Idioma",
   "about": "Acerca de",
