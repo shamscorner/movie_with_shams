@@ -2,8 +2,10 @@
   "favoriteMovies": "Favorite Movies",
   "language": "Language",
   "feedback": "Feedback",
-  "about": "about",
+  "about": "About",
   "popular": "POPULAR",
   "now": "NOW",
-  "soon": "SOON"
+  "soon": "SOON",
+  "okay": "Okay",
+  "aboutDescription": "This product uses the TMDb API to show movies. Here you will see trending, popular, now playing movies recommended to you."
 }

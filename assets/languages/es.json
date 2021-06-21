@@ -5,5 +5,7 @@
   "feedback": "Realimentación",
   "popular": "POPULAR",
   "now": "AHORA",
-  "soon": "PRONTO"
+  "soon": "PRONTO",
+  "okay": "Okay",
+  "aboutDescription": "Este producto utiliza la API de TMDb para mostrar películas. Aquí verá las películas que se están reproduciendo en tendencia, populares y que se le recomiendan."
 }

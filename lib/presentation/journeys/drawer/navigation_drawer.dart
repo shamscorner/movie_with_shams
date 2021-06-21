@@ -8,6 +8,8 @@ import 'package:movie_with_shams/common/extensions/string_extensions.dart';
 import 'package:movie_with_shams/presentation/blocs/language/language_bloc.dart';
 import 'package:movie_with_shams/presentation/journeys/drawer/navigation_expanded_list_item.dart';
 import 'package:movie_with_shams/presentation/journeys/drawer/navigation_list_item.dart';
+import 'package:movie_with_shams/presentation/themes/app_color.dart';
+import 'package:movie_with_shams/presentation/widgets/app_dialog.dart';
 import 'package:movie_with_shams/presentation/widgets/logo.dart';
 import 'package:wiredash/wiredash.dart';
 
@@ -65,9 +67,27 @@ class NavigationDrawer extends StatelessWidget {
             ),
             NavigationListItem(
               title: TranslationConstants.about.t(context),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).pop();
+                _showDialog(context);
+              },
             ),
           ],
+        ),
+      ),
+    );
+  }
+
+  void _showDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) => AppDialog(
+        title: TranslationConstants.about,
+        description: TranslationConstants.aboutDescription,
+        buttonText: TranslationConstants.okay,
+        image: Image.asset(
+          'assets/pngs/tmdb_logo.png',
+          height: Sizes.dimen_80.h.toDouble(),
         ),
       ),
     );
