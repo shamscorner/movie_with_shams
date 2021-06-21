@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movie_with_shams/presentation/themes/app_color.dart';
 import 'package:wiredash/wiredash.dart';
 
 class WiredashApp extends StatelessWidget {
@@ -18,6 +19,13 @@ class WiredashApp extends StatelessWidget {
       secret: 'lc8wt2jxvt9499xj4y41ba9vdtp9kbfvionezaln3mu9dcm2',
       navigatorKey: navigatorKey,
       child: child,
+      theme: WiredashThemeData(
+        brightness: Brightness.dark,
+        primaryColor: AppColor.royalBlue,
+        secondaryColor: AppColor.violet,
+        secondaryBackgroundColor: AppColor.vulcan,
+        dividerColor: AppColor.vulcan,
+      ),
     );
   }
 }
