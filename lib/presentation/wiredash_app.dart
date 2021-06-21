@@ -5,11 +5,13 @@ import 'package:wiredash/wiredash.dart';
 class WiredashApp extends StatelessWidget {
   final navigatorKey;
   final Widget child;
+  final String languageCode;
 
   const WiredashApp({
     Key? key,
     required this.navigatorKey,
     required this.child,
+    required this.languageCode,
   }) : super(key: key);
 
   @override
@@ -25,6 +27,11 @@ class WiredashApp extends StatelessWidget {
         secondaryColor: AppColor.violet,
         secondaryBackgroundColor: AppColor.vulcan,
         dividerColor: AppColor.vulcan,
+      ),
+      options: WiredashOptionsData(
+        locale: Locale.fromSubtags(
+          languageCode: languageCode,
+        ),
       ),
     );
   }
