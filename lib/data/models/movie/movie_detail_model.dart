@@ -150,14 +150,14 @@ class MovieDetailModel extends MovieDetailEntity {
 class BelongsToCollection {
   int id;
   String name;
-  String posterPath;
-  String backdropPath;
+  String? posterPath;
+  String? backdropPath;
 
   BelongsToCollection({
     required this.id,
     required this.name,
-    required this.posterPath,
-    required this.backdropPath,
+    this.posterPath,
+    this.backdropPath,
   });
 
   Map<String, dynamic> toMap() {
@@ -216,7 +216,7 @@ class ProductionCompanies {
   int id;
   String? logoPath;
   String name;
-  String originCountry;
+  String? originCountry;
 
   ProductionCompanies({
     required this.id,
