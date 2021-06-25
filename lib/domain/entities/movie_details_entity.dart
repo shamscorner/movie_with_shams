@@ -9,7 +9,7 @@ class MovieDetailEntity extends Equatable {
   final String backdropPath;
   final String posterPath;
 
-  MovieDetailEntity({
+  const MovieDetailEntity({
     required this.id,
     required this.title,
     required this.overview,

@@ -8,7 +8,6 @@ import 'package:movie_with_shams/common/extensions/string_extensions.dart';
 import 'package:movie_with_shams/presentation/blocs/language/language_bloc.dart';
 import 'package:movie_with_shams/presentation/journeys/drawer/navigation_expanded_list_item.dart';
 import 'package:movie_with_shams/presentation/journeys/drawer/navigation_list_item.dart';
-import 'package:movie_with_shams/presentation/themes/app_color.dart';
 import 'package:movie_with_shams/presentation/widgets/app_dialog.dart';
 import 'package:movie_with_shams/presentation/widgets/logo.dart';
 import 'package:wiredash/wiredash.dart';
