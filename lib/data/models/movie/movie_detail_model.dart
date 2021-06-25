@@ -68,68 +68,76 @@ class MovieDetailModel extends MovieDetailEntity {
   Map<String, dynamic> toMap() {
     return {
       'adult': adult,
-      'backdropPath': backdropPath,
-      'belongsToCollection': belongsToCollection?.toMap(),
+      'backdrop_path': backdropPath,
+      'belongs_to_collection': belongsToCollection?.toMap(),
       'budget': budget,
       'genres': genres?.map((x) => x.toMap()).toList(),
       'homepage': homepage,
       'id': id,
-      'imdbId': imdbId,
-      'originalLanguage': originalLanguage,
-      'originalTitle': originalTitle,
+      'imdb_id': imdbId,
+      'original_language': originalLanguage,
+      'original_title': originalTitle,
       'overview': overview,
       'popularity': popularity,
-      'posterPath': posterPath,
-      'productionCompanies':
+      'poster_path': posterPath,
+      'production_companies':
           productionCompanies?.map((x) => x.toMap()).toList(),
-      'productionCountries':
+      'production_countries':
           productionCountries?.map((x) => x.toMap()).toList(),
-      'releaseDate': releaseDate,
+      'release_date': releaseDate,
       'revenue': revenue,
       'runtime': runtime,
-      'spokenLanguages': spokenLanguages?.map((x) => x.toMap()).toList(),
+      'spoken_languages': spokenLanguages?.map((x) => x.toMap()).toList(),
       'status': status,
       'tagline': tagline,
       'title': title,
       'video': video,
-      'voteAverage': voteAverage,
-      'voteCount': voteCount,
+      'vote_average': voteAverage,
+      'vote_count': voteCount,
     };
   }
 
   factory MovieDetailModel.fromMap(Map<String, dynamic> map) {
     return MovieDetailModel(
       adult: map['adult'],
-      backdropPath: map['backdropPath'],
-      belongsToCollection:
-          BelongsToCollection.fromMap(map['belongsToCollection']),
+      backdropPath: map['backdrop_path'],
+      belongsToCollection: map['belongs_to_collection'] != null
+          ? BelongsToCollection.fromMap(map['belongs_to_collection'])
+          : null,
       budget: map['budget'],
       genres: List<Genres>.from(map['genres']?.map((x) => Genres.fromMap(x))),
       homepage: map['homepage'],
       id: map['id'],
-      imdbId: map['imdbId'],
-      originalLanguage: map['originalLanguage'],
-      originalTitle: map['originalTitle'],
+      imdbId: map['imdb_id'],
+      originalLanguage: map['original_language'],
+      originalTitle: map['original_title'],
       overview: map['overview'],
       popularity: map['popularity'],
-      posterPath: map['posterPath'],
+      posterPath: map['poster_path'],
       productionCompanies: List<ProductionCompanies>.from(
-          map['productionCompanies']
-              ?.map((x) => ProductionCompanies.fromMap(x))),
+        map['production_companies']?.map(
+          (x) => ProductionCompanies.fromMap(x),
+        ),
+      ),
       productionCountries: List<ProductionCountries>.from(
-          map['productionCountries']
-              ?.map((x) => ProductionCountries.fromMap(x))),
-      releaseDate: map['releaseDate'],
+        map['production_countries']?.map(
+          (x) => ProductionCountries.fromMap(x),
+        ),
+      ),
+      releaseDate: map['release_date'],
       revenue: map['revenue'],
       runtime: map['runtime'],
       spokenLanguages: List<SpokenLanguages>.from(
-          map['spokenLanguages']?.map((x) => SpokenLanguages.fromMap(x))),
+        map['spoken_languages']?.map(
+          (x) => SpokenLanguages.fromMap(x),
+        ),
+      ),
       status: map['status'],
       tagline: map['tagline'],
       title: map['title'],
       video: map['video'],
-      voteAverage: map['voteAverage'],
-      voteCount: map['voteCount'],
+      voteAverage: map['vote_average'],
+      voteCount: map['vote_count'],
     );
   }
 
