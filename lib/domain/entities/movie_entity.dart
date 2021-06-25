@@ -6,7 +6,7 @@ class MovieEntity extends Equatable {
   final String? backdropPath;
   final String title;
   final num voteAverage;
-  final String releaseDate;
+  final String? releaseDate;
   final String? overview;
 
   const MovieEntity({
@@ -15,7 +15,7 @@ class MovieEntity extends Equatable {
     this.backdropPath,
     required this.title,
     required this.voteAverage,
-    required this.releaseDate,
+    this.releaseDate,
     this.overview,
   });
 

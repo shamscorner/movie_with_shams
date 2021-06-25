@@ -6,7 +6,7 @@ class MovieModel extends MovieEntity {
   final bool? video;
   final String title;
   final String? overview;
-  final String releaseDate;
+  final String? releaseDate;
   final int id;
   final bool? adult;
   final String? backdropPath;
@@ -23,7 +23,7 @@ class MovieModel extends MovieEntity {
     this.video,
     required this.title,
     this.overview,
-    required this.releaseDate,
+    this.releaseDate,
     required this.id,
     this.adult,
     required this.backdropPath,
@@ -39,7 +39,6 @@ class MovieModel extends MovieEntity {
           id: id,
           title: title,
           posterPath: posterPath,
-          releaseDate: releaseDate,
           voteAverage: voteAverage,
           overview: overview,
         );
