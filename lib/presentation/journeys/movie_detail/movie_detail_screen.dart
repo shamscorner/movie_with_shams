@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie_with_shams/common/constants/size_constants.dart';
+import 'package:movie_with_shams/common/extensions/size_extensions.dart';
 import 'package:movie_with_shams/di/get_it.dart';
 import 'package:movie_with_shams/presentation/blocs/movie_detail/movie_detail_bloc.dart';
 import 'package:movie_with_shams/presentation/journeys/movie_detail/big_poster.dart';
@@ -51,6 +53,15 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
                   BigPoster(
                     movie: movieDetail,
                   ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: Sizes.dimen_16.w.toDouble(),
+                    ),
+                    child: Text(
+                      movieDetail.overview,
+                      style: Theme.of(context).textTheme.bodyText2,
+                    ),
+                  )
                 ],
               );
             } else if (state is MovieDetailError) {

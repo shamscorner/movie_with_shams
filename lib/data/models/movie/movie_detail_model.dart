@@ -214,13 +214,13 @@ class Genres {
 
 class ProductionCompanies {
   int id;
-  String logoPath;
+  String? logoPath;
   String name;
   String originCountry;
 
   ProductionCompanies({
     required this.id,
-    required this.logoPath,
+    this.logoPath,
     required this.name,
     required this.originCountry,
   });
