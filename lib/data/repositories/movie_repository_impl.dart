@@ -2,10 +2,11 @@ import 'dart:io';
 
 import 'package:dartz/dartz.dart';
 import 'package:movie_with_shams/data/data_sources/movie_remote_data_source.dart';
+import 'package:movie_with_shams/data/models/movie/cast_model.dart';
 import 'package:movie_with_shams/data/models/movie/movie_detail_model.dart';
 import 'package:movie_with_shams/data/models/movie/movie_model.dart';
+import 'package:movie_with_shams/data/models/movie/video_model.dart';
 import 'package:movie_with_shams/domain/entities/app_error.dart';
-import 'package:movie_with_shams/domain/entities/cast_entity.dart';
 import 'package:movie_with_shams/domain/entities/movie_entity.dart';
 import 'package:movie_with_shams/domain/repositories/movie_repository.dart';
 
@@ -75,10 +76,22 @@ class MovieRepositoryImpl extends MovieRepository {
   }
 
   @override
-  Future<Either<AppError, List<CastEntity>>> getCast(int id) async {
+  Future<Either<AppError, List<CastModel>>> getCast(int id) async {
     try {
       final casts = await remoteDataSource.getCast(id);
       return Right(casts);
+    } on SocketException {
+      return Left(AppError(AppErrorType.network));
+    } on Exception {
+      return Left(AppError(AppErrorType.api));
+    }
+  }
+
+  @override
+  Future<Either<AppError, List<VideoModel>?>> getVideos(int id) async {
+    try {
+      final videos = await remoteDataSource.getVideos(id);
+      return Right(videos);
     } on SocketException {
       return Left(AppError(AppErrorType.network));
     } on Exception {

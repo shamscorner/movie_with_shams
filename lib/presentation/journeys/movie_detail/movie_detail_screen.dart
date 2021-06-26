@@ -7,9 +7,11 @@ import 'package:movie_with_shams/common/extensions/string_extensions.dart';
 import 'package:movie_with_shams/di/get_it.dart';
 import 'package:movie_with_shams/presentation/blocs/cast/cast_bloc.dart';
 import 'package:movie_with_shams/presentation/blocs/movie_detail/movie_detail_bloc.dart';
+import 'package:movie_with_shams/presentation/blocs/video/video_bloc.dart';
 import 'package:movie_with_shams/presentation/journeys/movie_detail/big_poster.dart';
 import 'package:movie_with_shams/presentation/journeys/movie_detail/cast_widget.dart';
 import 'package:movie_with_shams/presentation/journeys/movie_detail/movie_details_arguments.dart';
+import 'package:movie_with_shams/presentation/journeys/movie_detail/videos_widget.dart';
 
 class MovieDetailScreen extends StatefulWidget {
   final MovieDetailArguments movieDetailArguments;
@@ -26,12 +28,14 @@ class MovieDetailScreen extends StatefulWidget {
 class _MovieDetailScreenState extends State<MovieDetailScreen> {
   late MovieDetailBloc _movieDetailBloc;
   late CastBloc _castBloc;
+  late VideoBloc _videoBloc;
 
   @override
   void initState() {
     super.initState();
     _movieDetailBloc = getItInstance<MovieDetailBloc>();
     _castBloc = _movieDetailBloc.castBloc;
+    _videoBloc = _movieDetailBloc.videoBloc;
     _movieDetailBloc.add(
       MovieDetailLoadEvent(widget.movieDetailArguments.movieId),
     );
@@ -41,6 +45,7 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
   void dispose() {
     _movieDetailBloc.close();
     _castBloc.close();
+    _videoBloc.close();
     super.dispose();
   }
 
@@ -51,6 +56,7 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
         providers: [
           BlocProvider.value(value: _movieDetailBloc),
           BlocProvider.value(value: _castBloc),
+          BlocProvider.value(value: _videoBloc),
         ],
         child: BlocBuilder<MovieDetailBloc, MovieDetailState>(
           builder: (context, state) {
@@ -84,6 +90,7 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
                       ),
                     ),
                     CastWidget(),
+                    VideosWidget(videoBloc: _videoBloc),
                   ],
                 ),
               );

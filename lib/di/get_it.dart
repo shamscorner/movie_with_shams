@@ -10,12 +10,14 @@ import 'package:movie_with_shams/domain/usecases/get_movie_detail.dart';
 import 'package:movie_with_shams/domain/usecases/get_playing_now.dart';
 import 'package:movie_with_shams/domain/usecases/get_popular.dart';
 import 'package:movie_with_shams/domain/usecases/get_trending.dart';
+import 'package:movie_with_shams/domain/usecases/get_videos.dart';
 import 'package:movie_with_shams/presentation/blocs/cast/cast_bloc.dart';
 import 'package:movie_with_shams/presentation/blocs/language/language_bloc.dart';
 import 'package:movie_with_shams/presentation/blocs/movie_backdrop/movie_backdrop_bloc.dart';
 import 'package:movie_with_shams/presentation/blocs/movie_carousel/movie_carousel_bloc.dart';
 import 'package:movie_with_shams/presentation/blocs/movie_detail/movie_detail_bloc.dart';
 import 'package:movie_with_shams/presentation/blocs/movie_tabbed/movie_tabbed_bloc.dart';
+import 'package:movie_with_shams/presentation/blocs/video/video_bloc.dart';
 
 final getItInstance = GetIt.I;
 
@@ -39,6 +41,8 @@ Future init() async {
   getItInstance.registerLazySingleton<GetMovieDetail>(
       () => GetMovieDetail(getItInstance()));
   getItInstance.registerLazySingleton<GetCast>(() => GetCast(getItInstance()));
+  getItInstance
+      .registerLazySingleton<GetVideos>(() => GetVideos(getItInstance()));
 
   getItInstance.registerLazySingleton<MovieRepository>(
       () => MovieRepositoryImpl(getItInstance()));
@@ -64,12 +68,19 @@ Future init() async {
     () => MovieDetailBloc(
       getMovieDetail: getItInstance(),
       castBloc: getItInstance(),
+      videoBloc: getItInstance(),
     ),
   );
 
   getItInstance.registerFactory(
     () => CastBloc(
       getCast: getItInstance(),
+    ),
+  );
+
+  getItInstance.registerFactory(
+    () => VideoBloc(
+      getVideos: getItInstance(),
     ),
   );
 

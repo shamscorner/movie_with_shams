@@ -9,6 +9,7 @@ import 'package:movie_with_shams/domain/entities/movie_details_entity.dart';
 import 'package:movie_with_shams/domain/entities/movie_params.dart';
 import 'package:movie_with_shams/domain/usecases/get_movie_detail.dart';
 import 'package:movie_with_shams/presentation/blocs/cast/cast_bloc.dart';
+import 'package:movie_with_shams/presentation/blocs/video/video_bloc.dart';
 
 part 'movie_detail_event.dart';
 part 'movie_detail_state.dart';
@@ -16,10 +17,12 @@ part 'movie_detail_state.dart';
 class MovieDetailBloc extends Bloc<MovieDetailEvent, MovieDetailState> {
   final GetMovieDetail getMovieDetail;
   final CastBloc castBloc;
+  final VideoBloc videoBloc;
 
   MovieDetailBloc({
     required this.getMovieDetail,
     required this.castBloc,
+    required this.videoBloc,
   }) : super(MovieDetailInitial());
 
   @override
@@ -36,6 +39,8 @@ class MovieDetailBloc extends Bloc<MovieDetailEvent, MovieDetailState> {
       );
 
       castBloc.add(LoadCastEvent(movieId: event.movieId));
+
+      videoBloc.add(LoadVideosEvent(movieId: event.movieId));
     }
   }
 }

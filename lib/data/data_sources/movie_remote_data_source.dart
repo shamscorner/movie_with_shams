@@ -4,6 +4,8 @@ import 'package:movie_with_shams/data/models/movie/cast_model.dart';
 import 'package:movie_with_shams/data/models/movie/movie_detail_model.dart';
 import 'package:movie_with_shams/data/models/movie/movie_model.dart';
 import 'package:movie_with_shams/data/models/movie/movies_result_model.dart';
+import 'package:movie_with_shams/data/models/movie/video_model.dart';
+import 'package:movie_with_shams/data/models/movie/video_result_model.dart';
 
 abstract class MovieRemoteDataSource {
   Future<List<MovieModel>> getTrending();
@@ -12,6 +14,7 @@ abstract class MovieRemoteDataSource {
   Future<List<MovieModel>> getComingSoon();
   Future<MovieDetailModel> getMovieDetail(int id);
   Future<List<CastModel>> getCast(int id);
+  Future<List<VideoModel>?> getVideos(int id);
 }
 
 class MovieRemoteDataSourceImpl extends MovieRemoteDataSource {
@@ -71,5 +74,14 @@ class MovieRemoteDataSourceImpl extends MovieRemoteDataSource {
     print('Cast for movie id: $id');
     print(cast);
     return cast;
+  }
+
+  @override
+  Future<List<VideoModel>?> getVideos(int id) async {
+    final response = await _client.get('movie/$id/videos');
+    final videos = VideoResultModel.fromJson(response).videos;
+    print('Videos for movie id: $id');
+    print(videos);
+    return videos;
   }
 }
