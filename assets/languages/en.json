@@ -11,5 +11,6 @@
   "soon": "SOON",
   "okay": "Okay",
   "aboutDescription": "This product uses the TMDb API to show movies. Here you will see trending, popular, now playing movies recommended to you.",
-  "noMovies": "Sorry, no movies under this section!"
+  "noMovies": "Sorry, no movies under this section!",
+  "cast": "Cast"
 }
