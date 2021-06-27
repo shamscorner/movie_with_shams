@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movie_with_shams/common/constants/size_constants.dart';
 import 'package:movie_with_shams/common/extensions/size_extensions.dart';
 import 'package:movie_with_shams/domain/entities/movie_entity.dart';
 import 'package:movie_with_shams/presentation/journeys/home/movie_tabbed/movie_tab_card_widget.dart';
@@ -15,7 +16,7 @@ class MovieListViewBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(
-        vertical: 6, // ! size extension is not working here
+        vertical: Sizes.dimen_6,
       ),
       child: ListView.separated(
         shrinkWrap: true,

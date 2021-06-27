@@ -9,6 +9,7 @@ import 'package:movie_with_shams/domain/usecases/get_coming_soon.dart';
 import 'package:movie_with_shams/domain/usecases/get_movie_detail.dart';
 import 'package:movie_with_shams/domain/usecases/get_playing_now.dart';
 import 'package:movie_with_shams/domain/usecases/get_popular.dart';
+import 'package:movie_with_shams/domain/usecases/get_searched_movies.dart';
 import 'package:movie_with_shams/domain/usecases/get_trending.dart';
 import 'package:movie_with_shams/domain/usecases/get_videos.dart';
 import 'package:movie_with_shams/presentation/blocs/cast/cast_bloc.dart';
@@ -17,6 +18,7 @@ import 'package:movie_with_shams/presentation/blocs/movie_backdrop/movie_backdro
 import 'package:movie_with_shams/presentation/blocs/movie_carousel/movie_carousel_bloc.dart';
 import 'package:movie_with_shams/presentation/blocs/movie_detail/movie_detail_bloc.dart';
 import 'package:movie_with_shams/presentation/blocs/movie_tabbed/movie_tabbed_bloc.dart';
+import 'package:movie_with_shams/presentation/blocs/search_movie/search_movie_bloc.dart';
 import 'package:movie_with_shams/presentation/blocs/video/video_bloc.dart';
 
 final getItInstance = GetIt.I;
@@ -43,6 +45,8 @@ Future init() async {
   getItInstance.registerLazySingleton<GetCast>(() => GetCast(getItInstance()));
   getItInstance
       .registerLazySingleton<GetVideos>(() => GetVideos(getItInstance()));
+  getItInstance.registerLazySingleton<GetSearchedMovies>(
+      () => GetSearchedMovies(getItInstance()));
 
   getItInstance.registerLazySingleton<MovieRepository>(
       () => MovieRepositoryImpl(getItInstance()));
@@ -81,6 +85,12 @@ Future init() async {
   getItInstance.registerFactory(
     () => VideoBloc(
       getVideos: getItInstance(),
+    ),
+  );
+
+  getItInstance.registerFactory(
+    () => SearchMovieBloc(
+      getSearchedMovies: getItInstance(),
     ),
   );
 
