@@ -8,12 +8,12 @@ import 'package:movie_with_shams/presentation/journeys/movie_detail/movie_detail
 
 class MovieCardWidget extends StatelessWidget {
   final int movieId;
-  final String posterPath;
+  final String? posterPath;
 
   const MovieCardWidget({
     Key? key,
     required this.movieId,
-    required this.posterPath,
+    this.posterPath,
   }) : super(key: key);
 
   @override

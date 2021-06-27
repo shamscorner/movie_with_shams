@@ -7,14 +7,14 @@ import 'package:movie_with_shams/presentation/journeys/home/movie_carousel/movie
 class AnimatedMovieCardWidget extends StatelessWidget {
   final int index;
   final int movieId;
-  final String posterPath;
+  final String? posterPath;
   final PageController pageController;
 
   const AnimatedMovieCardWidget({
     Key? key,
     required this.index,
     required this.movieId,
-    required this.posterPath,
+    this.posterPath,
     required this.pageController,
   }) : super(key: key);
 

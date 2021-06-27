@@ -14,7 +14,7 @@ class MovieModel extends MovieEntity {
   final int? voteCount;
   final String? originalLanguage;
   final String? originalTitle;
-  final String posterPath;
+  final String? posterPath;
   final double voteAverage;
   final double? popularity;
   final String? mediaType;
@@ -31,14 +31,13 @@ class MovieModel extends MovieEntity {
     this.voteCount,
     this.originalLanguage,
     this.originalTitle,
-    required this.posterPath,
+    this.posterPath,
     required this.voteAverage,
     this.popularity,
     this.mediaType,
   }) : super(
           id: id,
           title: title,
-          posterPath: posterPath,
           voteAverage: voteAverage,
           overview: overview,
         );
@@ -87,4 +86,9 @@ class MovieModel extends MovieEntity {
 
   factory MovieModel.fromJson(String source) =>
       MovieModel.fromMap(json.decode(source));
+
+  @override
+  String toString() {
+    return 'MovieModel(video: $video, title: $title, overview: $overview, releaseDate: $releaseDate, id: $id, adult: $adult, backdropPath: $backdropPath, voteCount: $voteCount, originalLanguage: $originalLanguage, originalTitle: $originalTitle, posterPath: $posterPath, voteAverage: $voteAverage, popularity: $popularity, mediaType: $mediaType)';
+  }
 }

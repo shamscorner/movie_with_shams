@@ -10,13 +10,13 @@ import 'package:movie_with_shams/presentation/journeys/movie_detail/movie_detail
 class MovieTabCardWidget extends StatelessWidget {
   final int movieId;
   final String title;
-  final String posterPath;
+  final String? posterPath;
 
   const MovieTabCardWidget({
     Key? key,
     required this.movieId,
     required this.title,
-    required this.posterPath,
+    this.posterPath,
   }) : super(key: key);
 
   @override

@@ -2,7 +2,7 @@ import 'package:equatable/equatable.dart';
 
 class MovieEntity extends Equatable {
   final int id;
-  final String posterPath;
+  final String? posterPath;
   final String? backdropPath;
   final String title;
   final num voteAverage;
@@ -11,7 +11,7 @@ class MovieEntity extends Equatable {
 
   const MovieEntity({
     required this.id,
-    required this.posterPath,
+    this.posterPath,
     this.backdropPath,
     required this.title,
     required this.voteAverage,
