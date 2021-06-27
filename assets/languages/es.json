@@ -13,5 +13,6 @@
   "aboutDescription": "Este producto utiliza la API de TMDb para mostrar películas. Aquí verá las películas que se están reproduciendo en tendencia, populares y que se le recomiendan.",
   "noMovies": "Lo sentimos, no hay películas en esta sección.",
   "cast": "Emitir",
-  "watchTrailers": "Ver Trailers"
+  "watchTrailers": "Ver Trailers",
+  "noMoviesSearched": "No se encontraron películas, busque con otro nombre."
 }
