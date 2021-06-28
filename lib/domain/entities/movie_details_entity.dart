@@ -5,7 +5,7 @@ class MovieDetailEntity extends Equatable {
   final String title;
   final String overview;
   final String releaseDate;
-  final num voteAverage;
+  final num? voteAverage;
   final String backdropPath;
   final String posterPath;
 
@@ -14,7 +14,7 @@ class MovieDetailEntity extends Equatable {
     required this.title,
     required this.overview,
     required this.releaseDate,
-    required this.voteAverage,
+    this.voteAverage,
     required this.backdropPath,
     required this.posterPath,
   });

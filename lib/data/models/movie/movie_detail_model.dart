@@ -26,7 +26,7 @@ class MovieDetailModel extends MovieDetailEntity {
   final String? tagline;
   final String title;
   final bool? video;
-  final double voteAverage;
+  final double? voteAverage;
   final int? voteCount;
 
   MovieDetailModel({
@@ -53,14 +53,13 @@ class MovieDetailModel extends MovieDetailEntity {
     this.tagline,
     required this.title,
     this.video,
-    required this.voteAverage,
+    this.voteAverage,
     this.voteCount,
   }) : super(
           id: id,
           title: title,
           overview: overview,
           releaseDate: releaseDate,
-          voteAverage: voteAverage,
           backdropPath: backdropPath,
           posterPath: posterPath,
         );

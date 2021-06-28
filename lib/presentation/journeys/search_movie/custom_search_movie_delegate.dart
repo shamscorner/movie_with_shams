@@ -4,7 +4,6 @@ import 'package:movie_with_shams/common/constants/size_constants.dart';
 import 'package:movie_with_shams/common/constants/translation_constants.dart';
 import 'package:movie_with_shams/common/extensions/size_extensions.dart';
 import 'package:movie_with_shams/common/extensions/string_extensions.dart';
-import 'package:movie_with_shams/domain/entities/app_error.dart';
 import 'package:movie_with_shams/presentation/blocs/search_movie/search_movie_bloc.dart';
 import 'package:movie_with_shams/presentation/journeys/search_movie/search_movie_card.dart';
 import 'package:movie_with_shams/presentation/themes/app_color.dart';

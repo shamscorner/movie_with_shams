@@ -15,7 +15,7 @@ class MovieModel extends MovieEntity {
   final String? originalLanguage;
   final String? originalTitle;
   final String? posterPath;
-  final double voteAverage;
+  final double? voteAverage;
   final double? popularity;
   final String? mediaType;
 
@@ -32,13 +32,12 @@ class MovieModel extends MovieEntity {
     this.originalLanguage,
     this.originalTitle,
     this.posterPath,
-    required this.voteAverage,
+    this.voteAverage,
     this.popularity,
     this.mediaType,
   }) : super(
           id: id,
           title: title,
-          voteAverage: voteAverage,
           overview: overview,
         );
 
