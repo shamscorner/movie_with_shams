@@ -22,5 +22,14 @@ class MovieTable extends MovieEntity {
   }) : super(
           id: id,
           title: title,
+          posterPath: posterPath,
         );
+
+  factory MovieTable.fromMovieEntity(MovieEntity movieEntity) {
+    return MovieTable(
+      id: movieEntity.id,
+      title: movieEntity.title,
+      posterPath: movieEntity.posterPath,
+    );
+  }
 }

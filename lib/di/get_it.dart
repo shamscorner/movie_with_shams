@@ -1,18 +1,24 @@
 import 'package:get_it/get_it.dart';
 import 'package:http/http.dart';
 import 'package:movie_with_shams/data/core/api_client.dart';
+import 'package:movie_with_shams/data/data_sources/movie_local_data_source.dart';
 import 'package:movie_with_shams/data/data_sources/movie_remote_data_source.dart';
 import 'package:movie_with_shams/data/repositories/movie_repository_impl.dart';
 import 'package:movie_with_shams/domain/repositories/movie_repository.dart';
+import 'package:movie_with_shams/domain/usecases/check_if_movie_is_favorite.dart';
+import 'package:movie_with_shams/domain/usecases/delete_favotire_movie.dart';
 import 'package:movie_with_shams/domain/usecases/get_cast.dart';
 import 'package:movie_with_shams/domain/usecases/get_coming_soon.dart';
+import 'package:movie_with_shams/domain/usecases/get_favorite_movies.dart';
 import 'package:movie_with_shams/domain/usecases/get_movie_detail.dart';
 import 'package:movie_with_shams/domain/usecases/get_playing_now.dart';
 import 'package:movie_with_shams/domain/usecases/get_popular.dart';
 import 'package:movie_with_shams/domain/usecases/get_searched_movies.dart';
 import 'package:movie_with_shams/domain/usecases/get_trending.dart';
 import 'package:movie_with_shams/domain/usecases/get_videos.dart';
+import 'package:movie_with_shams/domain/usecases/save_favorite_movie.dart';
 import 'package:movie_with_shams/presentation/blocs/cast/cast_bloc.dart';
+import 'package:movie_with_shams/presentation/blocs/favorite_movie/favorite_movie_bloc.dart';
 import 'package:movie_with_shams/presentation/blocs/language/language_bloc.dart';
 import 'package:movie_with_shams/presentation/blocs/movie_backdrop/movie_backdrop_bloc.dart';
 import 'package:movie_with_shams/presentation/blocs/movie_carousel/movie_carousel_bloc.dart';
@@ -31,6 +37,8 @@ Future init() async {
 
   getItInstance.registerLazySingleton<MovieRemoteDataSource>(
       () => MovieRemoteDataSourceImpl(getItInstance()));
+  getItInstance.registerLazySingleton<MovieLocalDataSource>(
+      () => MovieLocalDataSourceImpl());
 
   getItInstance
       .registerLazySingleton<GetTrending>(() => GetTrending(getItInstance()));
@@ -48,8 +56,20 @@ Future init() async {
   getItInstance.registerLazySingleton<GetSearchedMovies>(
       () => GetSearchedMovies(getItInstance()));
 
-  getItInstance.registerLazySingleton<MovieRepository>(
-      () => MovieRepositoryImpl(getItInstance()));
+  getItInstance.registerLazySingleton<SaveFavoriteMovie>(
+      () => SaveFavoriteMovie(getItInstance()));
+  getItInstance.registerLazySingleton<GetFavotireMovies>(
+      () => GetFavotireMovies(getItInstance()));
+  getItInstance.registerLazySingleton<DeleteFavoriteMovie>(
+      () => DeleteFavoriteMovie(getItInstance()));
+  getItInstance.registerLazySingleton<CheckIfMovieIsFavorite>(
+      () => CheckIfMovieIsFavorite(getItInstance()));
+
+  getItInstance
+      .registerLazySingleton<MovieRepository>(() => MovieRepositoryImpl(
+            getItInstance(),
+            getItInstance(),
+          ));
 
   getItInstance.registerFactory(() => MovieBackdropBloc());
 
@@ -73,6 +93,7 @@ Future init() async {
       getMovieDetail: getItInstance(),
       castBloc: getItInstance(),
       videoBloc: getItInstance(),
+      favoriteMovieBloc: getItInstance(),
     ),
   );
 
@@ -91,6 +112,15 @@ Future init() async {
   getItInstance.registerFactory(
     () => SearchMovieBloc(
       getSearchedMovies: getItInstance(),
+    ),
+  );
+
+  getItInstance.registerFactory(
+    () => FavoriteMovieBloc(
+      saveFavoriteMovie: getItInstance(),
+      getFavotireMovies: getItInstance(),
+      deleteFavoriteMovie: getItInstance(),
+      checkIfMovieIsFavorite: getItInstance(),
     ),
   );
 

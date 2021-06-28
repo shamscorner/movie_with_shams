@@ -6,6 +6,7 @@ import 'package:movie_with_shams/common/extensions/size_extensions.dart';
 import 'package:movie_with_shams/common/extensions/string_extensions.dart';
 import 'package:movie_with_shams/di/get_it.dart';
 import 'package:movie_with_shams/presentation/blocs/cast/cast_bloc.dart';
+import 'package:movie_with_shams/presentation/blocs/favorite_movie/favorite_movie_bloc.dart';
 import 'package:movie_with_shams/presentation/blocs/movie_detail/movie_detail_bloc.dart';
 import 'package:movie_with_shams/presentation/blocs/video/video_bloc.dart';
 import 'package:movie_with_shams/presentation/journeys/movie_detail/big_poster.dart';
@@ -29,13 +30,17 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
   late MovieDetailBloc _movieDetailBloc;
   late CastBloc _castBloc;
   late VideoBloc _videoBloc;
+  late FavoriteMovieBloc _favoriteMovieBloc;
 
   @override
   void initState() {
     super.initState();
+
     _movieDetailBloc = getItInstance<MovieDetailBloc>();
     _castBloc = _movieDetailBloc.castBloc;
     _videoBloc = _movieDetailBloc.videoBloc;
+    _favoriteMovieBloc = _movieDetailBloc.favoriteMovieBloc;
+
     _movieDetailBloc.add(
       MovieDetailLoadEvent(widget.movieDetailArguments.movieId),
     );
@@ -46,6 +51,8 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
     _movieDetailBloc.close();
     _castBloc.close();
     _videoBloc.close();
+    _favoriteMovieBloc.close();
+
     super.dispose();
   }
 
@@ -57,6 +64,7 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
           BlocProvider.value(value: _movieDetailBloc),
           BlocProvider.value(value: _castBloc),
           BlocProvider.value(value: _videoBloc),
+          BlocProvider.value(value: _favoriteMovieBloc),
         ],
         child: BlocBuilder<MovieDetailBloc, MovieDetailState>(
           builder: (context, state) {
