@@ -1,10 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:movie_with_shams/common/constants/route_constants.dart';
 import 'package:movie_with_shams/common/constants/size_constants.dart';
 import 'package:movie_with_shams/common/extensions/size_extensions.dart';
 import 'package:movie_with_shams/data/core/api_constants.dart';
 import 'package:movie_with_shams/domain/entities/movie_entity.dart';
-import 'package:movie_with_shams/presentation/journeys/movie_detail/movie_detail_screen.dart';
 import 'package:movie_with_shams/presentation/journeys/movie_detail/movie_details_arguments.dart';
 import 'package:movie_with_shams/presentation/themes/app_text.dart';
 
@@ -20,12 +20,9 @@ class SearchMovieCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (context) => MovieDetailScreen(
-              movieDetailArguments: MovieDetailArguments(movie.id),
-            ),
-          ),
+        Navigator.of(context).pushNamed(
+          RouteList.movieDetail,
+          arguments: MovieDetailArguments(movie.id),
         );
       },
       child: Padding(
