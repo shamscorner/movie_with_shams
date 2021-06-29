@@ -15,3 +15,5 @@ class LanguageLoaded extends LanguageState {
   @override
   List<Object> get props => [locale.languageCode];
 }
+
+class LanguageLoadError extends LanguageState {}
