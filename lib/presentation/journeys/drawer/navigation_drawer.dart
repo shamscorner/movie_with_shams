@@ -8,6 +8,7 @@ import 'package:movie_with_shams/common/extensions/string_extensions.dart';
 import 'package:movie_with_shams/presentation/blocs/language/language_bloc.dart';
 import 'package:movie_with_shams/presentation/journeys/drawer/navigation_expanded_list_item.dart';
 import 'package:movie_with_shams/presentation/journeys/drawer/navigation_list_item.dart';
+import 'package:movie_with_shams/presentation/journeys/favorite_movies/favorite_movies_screen.dart';
 import 'package:movie_with_shams/presentation/widgets/app_dialog.dart';
 import 'package:movie_with_shams/presentation/widgets/logo.dart';
 import 'package:wiredash/wiredash.dart';
@@ -44,7 +45,13 @@ class NavigationDrawer extends StatelessWidget {
             ),
             NavigationListItem(
               title: TranslationConstants.favoriteMovies.t(context),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => FavoriteMoviesScreen(),
+                  ),
+                );
+              },
             ),
             NavigationExpandedListItem(
               title: TranslationConstants.language.t(context),
